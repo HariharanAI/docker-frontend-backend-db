@@ -48,10 +48,10 @@ pipeline {
         stage('Run Frontend Container') {
             steps {
                 script {
-                    // Check if port 3000 is already in use
-                    def isPortInUse = sh(script: 'lsof -iTCP:3000 -sTCP:LISTEN', returnStatus: true)
+                    // Check if port 4000 is already in use
+                    def isPortInUse = sh(script: 'lsof -iTCP:4000 -sTCP:LISTEN', returnStatus: true)
                     if (isPortInUse == 0) {
-                        error "Port 3000 is already in use. Please stop the process using it or choose a different port."
+                        error "Port 4000 is already in use. Please stop the process using it or choose a different port."
                     }
 
                     // Check if the Frontend container already exists
