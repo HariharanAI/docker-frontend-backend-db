@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require('cors');
 const mongoose = require("mongoose");
-const port = 3001;
+const port = 3004;
 const routes = require("./routes");
 
 // Replace 'username' and 'password' with your MongoDB credentials
