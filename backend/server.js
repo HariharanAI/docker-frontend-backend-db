@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require("mongoose");
 const port = 3001;
 const routes = require("./routes");
+const API_URL = 'http://Backend:3001';
 
 main().catch((err) => console.log(err));
 
