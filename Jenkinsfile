@@ -79,7 +79,7 @@ pipeline {
                     docker run -d \
                     --name Backend \
                     --network 3tir \
-                    -p 3007:3001 \
+                    -p 3005:3005 \
                     backend-image
                     '''
                 }
@@ -116,7 +116,7 @@ pipeline {
                     docker run -d \
                     --name frontend \
                     --network 3tir \
-                    -p 3005:3005 \
+                    -p 3000:3000 \
                     frontend-image
                     '''
                 }
