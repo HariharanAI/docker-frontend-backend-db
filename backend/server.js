@@ -1,10 +1,9 @@
 const express = require("express");
-const cors = require('cors');
+const cors = require("cors");
 const mongoose = require("mongoose");
 const port = 3004;
-const routes = require("./routes");
+const todoRoutes = require("./routes/todos"); // Update this line
 
-// Replace 'username' and 'password' with your MongoDB credentials
 const mongoURI = "mongodb://username:password@mongo:27017/todos";
 
 main().catch((err) => console.log(err));
@@ -20,7 +19,7 @@ async function main() {
         const app = express();
         app.use(cors());
         app.use(express.json());
-        app.use("/api", routes);
+        app.use("/api", todoRoutes); // Use the todos route here
 
         app.listen(port, () => {
             console.log(`Server is listening on port: ${port}`);
