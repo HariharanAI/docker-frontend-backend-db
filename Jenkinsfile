@@ -1,39 +1,5 @@
 pipeline {
     agent any
-
-    stages {
-        stage('Clone Repository') {
-            steps {
-                script {
-                    git url: 'https://github.com/HariharanAI/docker-frontend-backend-db.git'
-                }
-            }
-        }
-
-        stage('Pull MongoDB Image') {
-            steps {
-                script {
-                    sh 'docker pull mongo'
-                }
-            }
-        }
-
-        stage('Create Docker Network') {
-            steps {
-                script {
-                    sh 'docker network create 3tir || true'
-                }
-            }
-        }
-
-        stage('Create Docker Volume') {
-            steps {
-                script {
-                    sh 'docker volume create 3tir_vol || true'
-                }
-            }
-        }
-
         stage('Run MongoDB Container') {
             steps {
                 script {
@@ -53,14 +19,6 @@ pipeline {
                     -e MONGODB_INITDB_ROOT_PASSWORD=password \
                     mongo
                     '''
-                }
-            }
-        }
-
-        stage('Build Backend Image') {
-            steps {
-                script {
-                    sh 'docker build -t backend-image ./backend'
                 }
             }
         }
@@ -86,13 +44,6 @@ pipeline {
             }
         }
 
-        stage('Build Frontend Image') {
-            steps {
-                script {
-                    sh 'docker build -t frontend-image ./frontend'
-                }
-            }
-        }
 
         stage('Run Frontend Container') {
             steps {
