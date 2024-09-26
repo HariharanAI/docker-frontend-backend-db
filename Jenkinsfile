@@ -67,7 +67,7 @@ pipeline {
                     docker run -d \
                     --name frontend \
                     --network 3tir \
-                    -p 3000:3000 \
+                    -p 4000:4000 \
                     frontend-image
                     '''
                 }
