@@ -5,7 +5,7 @@ services:
     depends_on:
       - api
     ports:
-      - "4000:4000"
+      - "3000:3000"
     networks:
       - network-backend
   api:
