@@ -7,10 +7,12 @@ const routes = require("./routes");
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect("mongodb://localhost/todos", {
+  await mongoose.connect("mongodb://mongo:27017/todos", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
+    // useCreateIndex: true  // Uncomment if needed for older versions of mongoose
   });
+  
   const app = express();
   app.use(cors());
   app.use(express.json());
