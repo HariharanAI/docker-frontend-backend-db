@@ -7,7 +7,8 @@ const routes = require("./routes");
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect("mongodb://mongo:27017/todos", {
+  // Correct MongoDB URI format: Add ':' between password and port
+  await mongoose.connect("mongodb://username:password@104.42.135.84:27017/todos", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     // useCreateIndex: true  // Uncomment if needed for older versions of mongoose
