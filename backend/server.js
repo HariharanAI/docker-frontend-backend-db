@@ -8,7 +8,7 @@ main().catch((err) => console.log(err));
 
 async function main() {
   // Correct MongoDB URI format: Add ':' between password and port
-  await mongoose.connect("mongodb://104.42.135.84:27017/", {
+  await mongoose.connect("mongodb://13.91.42.113:27017/", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     // useCreateIndex: true  // Uncomment if needed for older versions of mongoose
