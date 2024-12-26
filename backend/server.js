@@ -7,13 +7,12 @@ const routes = require("./routes");
 main().catch((err) => console.log(err));
 
 async function main() {
-  // Correct MongoDB URI format: Add ':' between password and port
-  await mongoose.connect("mongodb://51.107.216.111:27017/", {
+  // MongoDB connection URI for localhost
+  await mongoose.connect("mongodb://mongo:27017/todos", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
-    // useCreateIndex: true  // Uncomment if needed for older versions of mongoose
   });
-  
+
   const app = express();
   app.use(cors());
   app.use(express.json());
@@ -23,3 +22,4 @@ async function main() {
     console.log(`Server is listening on port: ${port}`);
   });
 }
+

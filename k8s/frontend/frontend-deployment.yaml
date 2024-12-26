@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    app: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: hariharansv/frontend:latest  # Use your Docker Hub username
+        ports:
+        - containerPort: 4000  # Expose the port you defined in the Dockerfile
+      imagePullSecrets:
+      - name: regcred  # Reference to the image pull secret created earlier
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  selector:
+    app: frontend
+  ports:
+    - protocol: TCP
+      port: 80  # Exposed service port
+      targetPort: 4000  # Container port
+  type: LoadBalancer  # Expose the service via LoadBalancer for external access
+
